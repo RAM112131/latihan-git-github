@@ -73,5 +73,10 @@ nothing to commit, working tree clean
 artinya branch nya mendahului branch yang origin main, dan caranya agar sama yaitu menggunakan git push
 
 
-2. kasus 2 kita akan mengupload ke github
+2. kasus 2 kita akan mengupload ke GitHub
 
+membuat dulu repository baru tapi untuk 
+itur read me nya jangan di aktifkan, nanti di setelah membuat nya akan langsung di arahkan ke perintah ...or create a new repository atau or push an exiting repository.....
+
+
+3 kasus 3
