@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Git</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body x-data="{ lang: 'id' }" x-init="document.documentElement.lang = lang">
+    <nav class="bg-gray-800 p-4 text-white">
+        <div class="container mx-auto flex justify-center items-center">
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="hover:text-gray-300" x-text="lang === 'id' ? 'Beranda' : 'Home'">Beranda</a></li>
+                <li><a href="about.html" class="hover:text-gray-300" x-text="lang === 'id' ? 'Tentang' : 'About'">Tentang</a></li>
+                <li><a href="contact.html" class="hover:text-gray-300" x-text="lang === 'id' ? 'Kontak' : 'Contact'">Kontak</a></li>
+            </ul>
+            <div class="ml-4">
+                <button @click="lang = 'id'" :class="{ 'font-bold': lang === 'id' }">ID</button>
+                <span class="mx-1">|</span>
+                <button @click="lang = 'en'" :class="{ 'font-bold': lang === 'en' }">EN</button>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="bg-white dark:bg-gray-900">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
+                    x-text="lang === 'id' ? 'Kuasai Git & GitHub, dari Nol hingga Mahir' : 'Master Git & GitHub, from Zero to Hero'"></h1>
+                <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400"
+                    x-text="lang === 'id' ? 'Pelajari dasar-dasar kontrol versi dan kolaborasi, dan tingkatkan keterampilan pengembangan Anda ke level berikutnya.' : 'Learn the fundamentals of version control and collaboration, and take your development skills to the next level.'"></p>
+                <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+                    <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+
+                        <span x-text="lang === 'id' ? 'Mulai Belajar' : 'Start Learning'"></span>
+                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="py-3 px-5 sm:ms-4 text-base font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                        <span x-text="lang === 'id' ? 'Lihat Kursus' : 'View Courses'"></span>
+                    </a>  
+                </div>
+            </div>
+        </section>
+        <section class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+            <div class="grid gap-8 lg:grid-cols-3">
+                <div class="p-6 bg-white rounded-lg border border-gray-20
+                00 dark:bg-gray-800 dark:border-gray-700">
+                    <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">John Doe</h3>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lead Data Scientist</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Jane Smith</h3>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Head of Visualization</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-800 p-4 text-white">
+        <div class="text-center">
+            <p>&copy; 2023 Latihan Git. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Git Remote</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+    <div class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Belajar Git Remote</h1>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+            <h2 class="text-2xl font-semibold mb-2">Apa itu Git Remote?</h2>
+            <p>
+                Perintah `git remote` adalah bagian dari Git yang digunakan untuk mengelola koneksi ke repositori lain. Koneksi ini bisa ke repositori milik sendiri di platform lain (seperti GitHub) atau repositori milik orang lain. Dengan `remote`, Anda bisa mendorong (push) perubahan Anda dan menarik (pull) perubahan dari orang lain.
+            </p>
+        </div>
+
+        <div class="space-y-4">
+            <!-- git remote -v -->
+            <div x-data="{ open: false }" class="bg-white p-4 rounded-lg shadow-md">
+                <div class="flex justify-between items-center">
+                    <code class="text-lg font-mono bg-gray-200 p-2 rounded">git remote -v</code>
+                    <button @click="open = !open" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        <span x-text="open ? 'Sembunyikan' : 'Tampilkan'"></span> Penjelasan
+                    </button>
+                </div>
+                <div x-show="open" class="mt-4 border-t pt-4 text-gray-600">
+                    Menampilkan daftar remote yang sudah terkonfigurasi di repositori Anda beserta URL-nya. Opsi `-v` (verbose) memastikan URL-nya ikut ditampilkan.
+                </div>
+            </div>
+
+            <!-- git remote add -->
+            <div x-data="{ open: false }" class="bg-white p-4 rounded-lg shadow-md">
+                <div class="flex justify-between items-center">
+                    <code class="text-lg font-mono bg-gray-200 p-2 rounded">git remote add [nama] [url]</code>
+                    <button @click="open = !open" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        <span x-text="open ? 'Sembunyikan' : 'Tampilkan'"></span> Penjelasan
+                    </button>
+                </div>
+                <div x-show="open" class="mt-4 border-t pt-4 text-gray-600">
+                    Menambahkan koneksi baru ke sebuah repositori remote. Beri nama yang singkat (misalnya, `origin` atau `upstream`) dan sertakan URL dari repositori tersebut.
+                </div>
+            </div>
+
+            <!-- git remote show -->
+            <div x-data="{ open: false }" class="bg-white p-4 rounded-lg shadow-md">
+                <div class="flex justify-between items-center">
+                    <code class="text-lg font-mono bg-gray-200 p-2 rounded">git remote show [nama]</code>
+                    <button @click="open = !open" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        <span x-text="open ? 'Sembunyikan' : 'Tampilkan'"></span> Penjelasan
+                    </button>
+                </div>
+                <div x-show="open" class="mt-4 border-t pt-4 text-gray-600">
+                    Menampilkan informasi detail tentang sebuah remote, termasuk URL, branch yang dilacak (tracked), dan status branch lokal terhadap branch di remote.
+                </div>
+            </div>
+            
+            <!-- git remote rename -->
+            <div x-data="{ open: false }" class="bg-white p-4 rounded-lg shadow-md">
+                <div class="flex justify-between items-center">
+                    <code class="text-lg font-mono bg-gray-200 p-2 rounded">git remote rename [nama-lama] [nama-baru]</code>
+                    <button @click="open = !open" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        <span x-text="open ? 'Sembunyikan' : 'Tampilkan'"></span> Penjelasan
+                    </button>
+                </div>
+                <div x-show="open" class="mt-4 border-t pt-4 text-gray-600">
+                    Mengganti nama sebuah koneksi remote dari `nama-lama` menjadi `nama-baru`.
+                </div>
+            </div>
+
+            <!-- git remote remove -->
+            <div x-data="{ open: false }" class="bg-white p-4 rounded-lg shadow-md">
+                <div class="flex justify-between items-center">
+                    <code class="text-lg font-mono bg-gray-200 p-2 rounded">git remote remove [nama]</code>
+                    <button @click="open = !open" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        <span x-text="open ? 'Sembunyikan' : 'Tampilkan'"></span> Penjelasan
+                    </button>
+                </div>
+                <div x-show="open" class="mt-4 border-t pt-4 text-gray-600">
+                    Menghapus koneksi ke sebuah remote. Ini tidak akan menghapus repositori remote itu sendiri, hanya koneksi dari repositori lokal Anda.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

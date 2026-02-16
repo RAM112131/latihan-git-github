@@ -1,0 +1,77 @@
+
+git init = menginisialisasi folder itu adalah repositori baru
+git add (nama file / . = menambah file ke staging area
+#staging area adalah area perantara antara direktori kerja (file yang sedang Anda edit) dan repositori Git (riwayat komit).
+git commit = menyimpan snapshot atau "titik simpan" dari perubahan yang telah ditambahkan ke staging area (git add) ke dalam riwayat repositori lokal.
+
+
+git checkout ds8dj (nama-file) = mengembalikan file
+git log = melihat histori commit
+git log --all --decorate --oneline --graph = menampilkan commit secara visual, ringkas dan kompehersif.
+alias graph="git log --all --decorate --oneline --graph" = membuat perintah alias untuk menampilkan commit secara visual. jadi nanti tinggal mengetikan saja graph lalu enter
+
+git branch (nama branch baru) = membuat branch baru
+git checkout (nama_branch) = akan pindah branch
+git branch --merged = mengetahui branch yang sudah dimerge
+git branch -d (nama branch) = mendelete branch yang sudah di merge
+git branch -D (nama branch) = mendelete branch yang belum di merge
+
+
+jika dalam branch status itu status nya "modified" maka bisa langsung commit dengan perintah:
+git commit -am "message"
+
+
+ketika terdapat 2 branch yang mengedit file yang sama, maka akan terjadi conflict, maka nanti akan masuk ke file vim atau nantinya akan ada tampilan langsung di kodingan contohnya seperti ini
+<<<<<< head (Current Change)
+	Gas
+=========
+	Gas aja
+>>>>>>> dev (Incoming Change)
+
+keterangan:
+<<<<<<< HEAD (Current Change): Menandai awal konflik. Bagian di bawah ini (Gas) adalah kode yang ada di branch Anda saat ini (branch tempat Anda berdiri sekarang).
+=======: Garis pemisah antara perubahan Anda dan perubahan dari branch lain.
+>>>>>>> dev (Incoming Change): Menandai akhir dari konflik. Bagian di atasnya (Gas aja) adalah kode yang berasal dari branch dev yang ingin Anda masukkan.
+
+Accept Current Change: Simpan Gas (hapus Gas aja dan tanda konflik).
+Accept Incoming Change: Simpan Gas aja (hapus Gas dan tanda konflik).
+Accept Both Changes: Simpan keduanya (misal: Gas lalu di baris baru Gas aja).
+
+catatan
+kita juga bisa kembali ke commit dengan branch yang telah di hapus, terus mengedit ulang lagi, bisa membuat branch baru lagi di commit tersebut dan bisa merge lagi.
+
+
+git remote (menyambungkan repositori di GitHub dengan git local)
+1. kasus 1, mengambil dari repositori orang lain
+buka GitHub, buat repository baru nah nanti setelah membuat repository baru itu kan ada button dropdown yang bertuliskan <> Code, nah klik itu nanti muncul langsung ke Local, nah di local itu ada beberapa teknik cloning ada yang pake https, ssh dsb. kita akan menggunakan https
+
+dengan menyalin dulu kode https nya
+lalu kita buka git di folder yang akan di jadikan tempat menyimpan file nya
+
+setelah membuka git bash nya lalu jalankan perintah ini:
+git clone <masukkan link https dari githubnya>
+ketika kita sudah mengcloning repositorinya lalu kita jalankan perintah "git remote" maka yang muncul itu origin, itu adalah default nama dari remote tersebut
+
+git remote -v = melihat detail alamat remote nanti ada dua alamat yaitu fetch & push
+
+dan jika menjalankan perintah git status dalam saat ini maka pesan yang muncul itu seperti ini:
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+artinya branch yang ada dilokal sudah sama dengan yang di origin, ini yang kita inginkan jadi setiap update itu branch nya sama.
+
+lalu ketika mencoba dengan membuat file baru di folder hasil clone tersebut, nah nah ketika sudah di masukkan ke staging area, lalu di commit, dan ketika di jalankan perintah git status maka tampilannya seperti ini:
+
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+artinya branch nya mendahului branch yang origin main, dan caranya agar sama yaitu menggunakan git push
+
+
+2. kasus 2 kita akan mengupload ke github
+
